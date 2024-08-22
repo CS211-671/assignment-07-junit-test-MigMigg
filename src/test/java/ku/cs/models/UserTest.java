@@ -1,5 +1,6 @@
 package ku.cs.models;
 
+import at.favre.lib.crypto.bcrypt.BCrypt;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -31,7 +32,18 @@ class UserTest {
         assertTrue(user.validatePassword("1234"));
     }
     @Test
-    void testSetID() {
-
+    void testIsUsername() {
+        User user = new User ("user01" , "123");
+        assertTrue(user.isUsername("user01")) ;
+    }
+    @Test
+    void testGetUsername() {
+        User user = new User ("user01" , "123");
+        assertEquals("user01", user.getUsername());
+    }
+    @Test
+    void testGetPassword() {
+        User user = new User ("user01" , "123");
+        assertTrue( user.validatePassword("123") );
     }
 }

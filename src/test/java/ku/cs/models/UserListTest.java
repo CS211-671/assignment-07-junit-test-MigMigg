@@ -20,7 +20,7 @@ class UserListTest {
         // TODO: assert that UserList found User
         User user = userList.findUserByUsername("b2");
         String actual = user.getUsername();
-        assertEquals("b2", actual);
+        assertEquals("b2", actual );
     }
 
     @Test
@@ -46,10 +46,9 @@ class UserListTest {
         userList.addUser("b2", "b456");
         userList.addUser("b3", "b789");
         // TODO: call login() with correct username and password
-        User actual = userList.login("b1", "b123");
-        // TODO: assert that User object is found
         User user = userList.login("b1", "b123");
-        assertEquals(user, actual);
+        // TODO: assert that User object is found
+        assertEquals( userList.findUserByUsername("b1"), user );
     }
 
     @Test
@@ -64,6 +63,14 @@ class UserListTest {
         User actual = userList.login("b2", "b457");
         // TODO: assert that the method return null
         assertNull(actual);
+    }
+
+    @Test
+    public void testAddUser() {
+        UserList userList = new UserList();
+        userList.addUser("b1", "b123");
+        userList.findUserByUsername("b1");
+        assertEquals( "b1",userList.findUserByUsername("b1").getUsername() );
     }
 
 }
