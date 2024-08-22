@@ -17,6 +17,24 @@ public class Student {
         this.score = score;
     }
 
+    public String grade() {
+         if (score >= 80)
+             return "A";
+         else if ( score >= 75)
+                return "B+";
+         else if ( score >= 70)
+             return "B";
+         else if ( score >= 65)
+             return "C+";
+         else if ( score >= 60)
+             return "C";
+         else if ( score >= 55)
+             return "D+";
+         else if ( score >= 50)
+             return "D";
+         else
+             return "F";
+    }
     public void changeName(String name) {
         if (!name.trim().isEmpty()) {
             this.name = name.trim();
@@ -27,11 +45,6 @@ public class Student {
         if (score > 0) {
             this.score += score;
         }
-    }
-
-    public String grade()
-    {
-        return "F";
     }
 
     public boolean isId(String id) {
